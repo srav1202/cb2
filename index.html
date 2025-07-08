@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyBank - Online Banking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #002b5c;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #00509e;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      display: block;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #003f7f;
+    }
+
+    .hero {
+      background-color: #e0e0e0;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      margin: 0;
+      color: #002b5c;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 30px;
+    }
+
+    .card {
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px;
+      flex: 1 1 300px;
+      max-width: 300px;
+    }
+
+    .card h3 {
+      color: #00509e;
+    }
+
+    footer {
+      background-color: #002b5c;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+  <script type="text/javascript" charset="utf-8">
+    (function (g, e, n, es, ys) {
+      g['_genesysJs'] = e;
+      g[e] = g[e] || function () {
+        (g[e].q = g[e].q || []).push(arguments)
+      };
+      g[e].t = 1 * new Date();
+      g[e].c = es;
+      ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+    })(window, 'Genesys', 'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
+      environment: 'prod-usw2',
+      deploymentId: 'ca36b611-f3f7-4726-8c33-2149d30838b9'
+    });
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>MyBank</h1>
+  <p>Secure. Simple. Banking for You.</p>
+</header>
+
+<nav>
+  <a href="#">Accounts</a>
+  <a href="#">Services</a>
+  <a href="#">Profile</a>
+</nav>
+
+<div class="hero">
+  <h2>Welcome to MyBank – Your trusted partner in banking</h2>
+  <p>Check your balance, manage cards, and access financial services easily.</p>
+</div>
+
+<div class="container">
+  <div class="card">
+    <h3>Accounts</h3>
+    <p>View account details, balances, and transaction history.</p>
+  </div>
+  <div class="card">
+    <h3>Cards & Services</h3>
+    <p>Manage debit/credit cards, apply for loans and access services.</p>
+  </div>
+  <div class="card">
+    <h3>User Profile</h3>
+    <p>Update personal info, change password, and security settings.</p>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 MyBank. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
