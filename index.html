@@ -2,132 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MyBank - Online Banking</title>
+  <title>MyBank - Home</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f4f4;
+    body { font-family: Arial; margin: 0; background: #f8f9fa; }
+    header, footer { background: #002b5c; color: white; text-align: center; padding: 20px; }
+    nav { background: #00509e; display: flex; justify-content: center; }
+    nav a { color: white; padding: 14px 20px; text-decoration: none; }
+    nav a:hover { background: #003f7f; }
+    .content { padding: 20px; }
+    button { margin: 10px; padding: 10px 15px; }
+    form { margin-top: 20px; }
+    label { display: block; margin: 10px 0 5px; }
+    input[type="text"], input[type="password"], input[type="number"] {
+      width: 300px; padding: 8px;
     }
-
-    header {
-      background-color: #002b5c;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    nav {
-      background-color: #00509e;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav a {
-      color: white;
-      padding: 14px 20px;
-      display: block;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
-    nav a:hover {
-      background-color: #003f7f;
-    }
-
-    .hero {
-      background-color: #e0e0e0;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .hero h2 {
-      margin: 0;
-      color: #002b5c;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      padding: 30px;
-    }
-
-    .card {
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      padding: 20px;
-      margin: 10px;
-      flex: 1 1 300px;
-      max-width: 300px;
-    }
-
-    .card h3 {
-      color: #00509e;
-    }
-
-    footer {
-      background-color: #002b5c;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
+    #resultBox { margin-top: 20px; padding: 10px; background: #e0e0e0; border-left: 5px solid #00509e; }
   </style>
-  <script type="text/javascript" charset="utf-8">
-    (function (g, e, n, es, ys) {
-      g['_genesysJs'] = e;
-      g[e] = g[e] || function () {
-        (g[e].q = g[e].q || []).push(arguments)
-      };
-      g[e].t = 1 * new Date();
-      g[e].c = es;
-      ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-    })(window, 'Genesys', 'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
-      environment: 'prod-usw2',
-      deploymentId: 'ca36b611-f3f7-4726-8c33-2149d30838b9'
-    });
-  </script>
 </head>
 <body>
 
 <header>
-  <h1>MyBank</h1>
-  <p>Secure. Simple. Banking for You.</p>
+  <h1>Welcome to MyBank</h1>
+  <p>Secure Banking at Your Fingertips</p>
 </header>
 
 <nav>
-  <a href="#">Accounts</a>
-  <a href="#">Services</a>
-  <a href="#">Profile</a>
+  <a href="index.html">Home</a>
+  <a href="accounts.html">Accounts</a>
+  <a href="services.html">Services</a>
+  <a href="profile.html">Profile</a>
 </nav>
 
-<div class="hero">
-  <h2>Welcome to MyBank – Your trusted partner in banking</h2>
-  <p>Check your balance, manage cards, and access financial services easily.</p>
-</div>
+<div class="content">
+  <h2>Quick Actions</h2>
+  <button onclick="showRandomBalance()">Check Balance</button>
+  <button onclick="showRandomCard()">Show Card Info</button>
 
-<div class="container">
-  <div class="card">
-    <h3>Accounts</h3>
-    <p>View account details, balances, and transaction history.</p>
-  </div>
-  <div class="card">
-    <h3>Cards & Services</h3>
-    <p>Manage debit/credit cards, apply for loans and access services.</p>
-  </div>
-  <div class="card">
-    <h3>User Profile</h3>
-    <p>Update personal info, change password, and security settings.</p>
-  </div>
+  <div id="resultBox"></div>
+
+  <h2>Login Form</h2>
+  <form onsubmit="handleLogin(event)">
+    <label for="username">Username</label>
+    <input type="text" id="username" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" required>
+
+    <button type="submit">Login</button>
+  </form>
 </div>
 
 <footer>
   <p>&copy; 2025 MyBank. All rights reserved.</p>
 </footer>
+
+<script>
+  function showRandomBalance() {
+    const balance = (Math.random() * 100000).toFixed(2);
+    document.getElementById('resultBox').innerText = "Your current balance is: ₹" + balance;
+  }
+
+  function showRandomCard() {
+    const cardNum = "XXXX-XXXX-XXXX-" + Math.floor(1000 + Math.random() * 9000);
+    const expiry = "0" + Math.floor(1 + Math.random() * 9) + "/2" + Math.floor(5 + Math.random() * 5);
+    const cvv = Math.floor(100 + Math.random() * 900);
+    document.getElementById('resultBox').innerHTML =
+      `<strong>Card Number:</strong> ${cardNum}<br>
+       <strong>Expiry:</strong> ${expiry}<br>
+       <strong>CVV:</strong> ${cvv}`;
+  }
+
+  function handleLogin(event) {
+    event.preventDefault();
+    const user = document.getElementById('username').value;
+    document.getElementById('resultBox').innerText = `Welcome, ${user}! You are now logged in.`;
+  }
+</script>
 
 </body>
 </html>
